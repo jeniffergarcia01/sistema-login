@@ -1,0 +1,353 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tela de Login</title>
+
+    <!-- Ícones das redes sociais -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+
+            /* Troque pelo caminho da sua imagem */
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(10, 18, 25, 0.35),
+                    rgba(10, 18, 25, 0.65)
+                ),
+                url("Imagens/fundodetela-login.jpeg");
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 1050px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: center;
+        }
+
+        /* Lado esquerdo */
+
+        .welcome h1 {
+            font-size: clamp(42px, 5vw, 64px);
+            line-height: 1.05;
+            margin-bottom: 22px;
+            font-weight: 800;
+        }
+
+        .welcome p {
+            max-width: 370px;
+            color: #e0e0e0;
+            font-size: 14px;
+            line-height: 1.7;
+            margin-bottom: 28px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 18px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 20px;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .social-links a:hover {
+            color: #ff8954;
+            transform: translateY(-3px);
+        }
+
+        /* Lado direito: formulário */
+
+        .login-form {
+            width: 100%;
+            max-width: 360px;
+        }
+
+        .login-form h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+
+        .campo {
+            margin-bottom: 22px;
+        }
+
+        .campo label {
+            display: block;
+            font-size: 13px;
+            color: #f0f0f0;
+            margin-bottom: 9px;
+        }
+
+        .campo input {
+            width: 100%;
+            padding: 13px 14px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.96);
+            color: #222;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .campo input:focus {
+            border-color: #ff8954;
+            box-shadow: 0 0 0 2px rgba(255, 137, 84, 0.3);
+        }
+
+        .opcoes {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 5px 0 24px;
+            font-size: 12px;
+        }
+
+        .lembrar {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .lembrar input {
+            accent-color: #e66c35;
+        }
+
+        a {
+            color: white;
+        }
+
+        .esqueceu {
+            text-decoration: none;
+        }
+
+        .esqueceu:hover,
+        .termos a:hover {
+            text-decoration: underline;
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 13px;
+            border: none;
+            border-radius: 4px;
+            background: #e66c35;
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-login:hover {
+            background: #cb5525;
+        }
+
+        #mensagem {
+            margin-top: 15px;
+            font-size: 13px;
+            line-height: 1.5;
+            overflow-wrap: anywhere;
+        }
+
+        .termos {
+            margin-top: 48px;
+            text-align: center;
+            color: #e0e0e0;
+            font-size: 11px;
+            line-height: 1.8;
+        }
+
+        .termos a {
+            color: white;
+        }
+
+        /* Ajustes para celular */
+
+        @media (max-width: 700px) {
+            body {
+                padding: 30px 22px;
+                background-position: center;
+            }
+
+            .login-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                max-width: 400px;
+            }
+
+            .welcome h1 {
+                font-size: 42px;
+            }
+
+            .welcome p {
+                margin-bottom: 20px;
+            }
+
+            .login-form {
+                max-width: 100%;
+            }
+
+            .login-form h2 {
+                font-size: 28px;
+                margin-bottom: 22px;
+            }
+
+            .termos {
+                margin-top: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="login-container">
+
+        <!-- Área de boas-vindas -->
+        <section class="welcome">
+            <h1>Bem-vinda<br>de volta!</h1>
+
+            <p>
+                É um fato comprovado que a simplicidade no acesso melhora a sua experiência. Acesse sua conta com segurança.
+            </p>
+
+            <nav class="social-links" aria-label="Redes sociais">
+                
+<a href="https://www.facebook.com/jeniffer.garcia.180/"
+   target="_blank"
+   rel="noopener noreferrer"
+   aria-label="Facebook">
+    <i class="fa-brands fa-facebook"></i>
+</a>
+
+
+                <a href="https://www.instagram.com/jeniffer_sgarcia?dlrf=MWU1OGp3ZHY1eWdsZA=="
+                   target="_blank" rel="noopener noreferrer"
+                   aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="https://www.youtube.com/@tecnoguria"
+                   target="_blank" rel="noopener noreferrer"
+                   aria-label="YouTube">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+
+                <a href="https://x.com/JenifferSGarcia"
+                   target="_blank" rel="noopener noreferrer"
+                   aria-label="X">
+                    <i class="fa-brands fa-x-twitter"></i>
+                </a>
+            </nav>
+        </section>
+
+        <!-- Formulário de login -->
+        <section>
+            <form class="login-form" id="formLogin">
+                <h2>Entrar</h2>
+
+                <div class="campo">
+                    <label for="email">E-mail</label>
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Digite seu e-mail"
+                        autocomplete="email"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="senha">Senha</label>
+                    <input
+                        type="password"
+                        id="senha"
+                        placeholder="Digite sua senha"
+                        autocomplete="current-password"
+                        required
+                    >
+                </div>
+
+                <div class="opcoes">
+                    <label class="lembrar" for="lembrar">
+                        <input type="checkbox" id="lembrar">
+                        Lembrar de mim
+                    </label>
+
+                    <a href="#recuperar" class="esqueceu">
+                        Esqueceu a senha?
+                    </a>
+                </div>
+
+                <button type="submit" class="btn-login">
+                    Entrar agora
+                </button>
+
+                <p id="mensagem" aria-live="polite"></p>
+
+                
+                 
+<p class="termos">
+    Ao continuar, você concorda com nossos<br>
+    <a href="termos.html">Termos de Serviço</a>
+    |
+    <a href="politica.html">
+        Política de Privacidade
+    </a>
+</p>
+
+            
+            </form>
+        </section>
+
+    </main>
+
+    <script>
+        const formulario = document.getElementById("formLogin");
+        const mensagem = document.getElementById("mensagem");
+
+        formulario.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const email = document.getElementById("email").value;
+
+            mensagem.textContent =
+                "Formulário validado para: " + email;
+        });
+    </script>
+
+</body>
+</html>
